@@ -13,7 +13,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 [image1]: ./output_images/car_not_car.png
 [image2]: ./output_images/HOG_example.jpg
-[image3]: ./examples/sliding_windows.jpg
+[image3]: ./output_images/sliding_windows.jpg
 [image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
@@ -43,17 +43,17 @@ Here is an example using the grayscaled image and HOG parameters of `orientation
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+I tried various combinations of parameters and concluded that `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)` are the best, based on the result the accuracy of SVM.
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+I trained a SVM using several kernel and parameters, by using Gridsearch Function, as in the No 15-16 Cells. Then find that RBF kernel with C = 10 and gamma = 0.0001. 
 
 ### Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I used 3 windows sizes (64, 64), (144, 144), (160, 160), after tested several sizes. (No 7 cell in ipython notebook)
 
 ![alt text][image3]
 
